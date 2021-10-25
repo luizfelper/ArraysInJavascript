@@ -59,7 +59,7 @@ function App() {
 
       {dados.map((itemAtual, i) => {
         return (
-          <div className="ItemAluno" key={itemAtual.Id}>
+          <div className="ItemAluno" key={itemAtual.i}>
             <p>Nome: {itemAtual.Nome}</p>
             <p>Sobrenome: {itemAtual.Sobrenome}</p>
             <p>Idade: {itemAtual.Idade}</p>
@@ -68,7 +68,8 @@ function App() {
               <form onSubmit={ function excluir(e) {
                 e.preventDefault();
                 delete dados[i];
-                setDados(dados);
+                const dadosAtuais = dados.filter(item => item !== null);
+                setDados(dadosAtuais);
                 console.log(dados);
               }}>
               <button>Remover</button>
