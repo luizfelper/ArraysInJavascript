@@ -27,9 +27,10 @@ function App() {
 
 
   return (
+    <div>
     <div className="App">
       <h1>Tratar dados com Javascript</h1>
-      <form onSubmit={function addPessoas(e) {
+      <form className="boxCadastrar" onSubmit={function addPessoas(e) {
         e.preventDefault();
         const dadosPessoa = new FormData(e.target);
 
@@ -47,9 +48,12 @@ function App() {
       }}>
         <input type="text" name="nome" placeholder="Nome" />
         <input type="text" name="sobrenome" placeholder="Sobrenome" />
-        <input type="text" name="idade" placeholder="Idade" />
-        <input type="text" name="telefone" placeholder="Telefone" />
-        <button>Cadastrar Aluno</button>
+        <input type="number" name="idade" placeholder="Idade" />
+        <input type="number" name="telefone" placeholder="Telefone" />
+        <div className="boxBtnCadastrar">
+          <button className="btnCad">Cadastrar</button>
+          <button className="btnLimpa">Limpar</button>
+        </div>
       </form>
       <form>
         <input type="text" name="buscar" placeholder="Buscar" />
@@ -66,21 +70,26 @@ function App() {
             <p>Telefone: {itemAtual.Telefone}</p>
             <div>
               <form>
-              <button onClick={ function excluir(e) {
-                e.preventDefault();
-                delete dados[i];
-                const dadosAtuais = dados.filter(item => item !== null);
-                setDados(dadosAtuais);
-                console.log(dados);
-              }}>Remover</button>
+                <button onClick={function excluir(e) {
+                  e.preventDefault();
+                  delete dados[i];
+                  const dadosAtuais = dados.filter(item => item !== null);
+                  setDados(dadosAtuais);
+                  console.log(dados);
+                }}>Remover</button>
               </form>
- 
+
             </div>
           </div>
 
         )
       })}
-
+    </div>
+    <div className="footer">
+      <p>Aplicação em ReactJS criado por Felipe Fontenele
+        github.com/luizfelper
+      </p>
+    </div>
     </div>
   );
 }
