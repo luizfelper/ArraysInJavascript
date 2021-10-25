@@ -3,6 +3,26 @@
   padding: 0;
 }
 .App {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 15px;
+  border-radius: 10px;
+  border : none;
 }
 
 .App-logo {
