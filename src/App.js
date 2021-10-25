@@ -7,13 +7,7 @@ function App() {
     Nome: 'Felipe',
     Sobrenome: 'Santos',
     Idade: '23',
-    Telefone: '+55-86-999981876'},
-    {
-      Id: 0,
-      Nome: 'Felipe',
-      Sobrenome: 'Santos',
-      Idade: '23',
-      Telefone: '+55-86-999981876'}
+    Telefone: '+55-86-999981876'}
   ]);
  
 
@@ -24,7 +18,7 @@ function App() {
         e.preventDefault();
         const dadosPessoa = new FormData(e.target);
 
-        const objetoPessoa = {
+        const obtemDados = {
           Id: 1,
           Nome: dadosPessoa.get('nome'),
           Sobrenome: dadosPessoa.get('sobrenome'),
@@ -32,7 +26,8 @@ function App() {
           Telefone: dadosPessoa.get('telefone')
         };
       
-        const pessoasAtualizadas = [...dados, objetoPessoa]
+        const pessoasAtualizadas = [...dados, obtemDados]
+        setDados(pessoasAtualizadas);
         console.log(pessoasAtualizadas);
       }}>
         <input type="text" name="nome" placeholder="Nome"/>
