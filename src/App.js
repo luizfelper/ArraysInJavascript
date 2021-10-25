@@ -65,14 +65,14 @@ function App() {
             <p>Idade: {itemAtual.Idade}</p>
             <p>Telefone: {itemAtual.Telefone}</p>
             <div>
-              <form onSubmit={ function excluir(e) {
+              <form>
+              <button onClick={ function excluir(e) {
                 e.preventDefault();
                 delete dados[i];
                 const dadosAtuais = dados.filter(item => item !== null);
                 setDados(dadosAtuais);
                 console.log(dados);
-              }}>
-              <button>Remover</button>
+              }}>Remover</button>
               </form>
  
             </div>

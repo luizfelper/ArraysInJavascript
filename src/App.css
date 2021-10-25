@@ -17,12 +17,21 @@ input {
 }
 
 button {
-  background-color: black;
+  background-color: #858585;
   color: white;
   padding: 14px 20px;
-  margin: 15px;
+  margin-top: 10px;
   border-radius: 10px;
   border : none;
+}
+
+.ItemAluno {
+  background-color: #f6f6f6;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin: 10px 0px;
+  /* box-shadow: 10px 10px 5px #e2e2e2; */
 }
 
 .App-logo {
@@ -60,8 +69,4 @@ button {
   }
 }
 
-.ItemAluno {
-  background-color: #f6f6f6;
-  padding: 20px;
-  border: 1px solid #eee;
-}
+
