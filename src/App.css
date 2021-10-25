@@ -39,3 +39,9 @@
     transform: rotate(360deg);
   }
 }
+
+.ItemAluno {
+  background-color: #f6f6f6;
+  padding: 20px;
+  border: 1px solid #eee;
+}
