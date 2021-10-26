@@ -38,7 +38,7 @@ function App() {
             const dadosPessoa = new FormData(e.target); //Captura os dados do formulário em geral
 
             const obtemDados = { //Captura os dados dos campos em específico
-              Id: 1,
+              Id: dadosPessoa.get('Id'),
               Nome: dadosPessoa.get('nome'),
               Sobrenome: dadosPessoa.get('sobrenome'),
               Idade: dadosPessoa.get('idade'),
@@ -54,6 +54,8 @@ function App() {
             inputs.forEach(input => input.value = '');
             
           }}>
+            <h3>Id</h3>
+            <input type="number" name="Id" placeholder="Id" />
             <h3>Nome:</h3>
             <input type="text" name="nome" placeholder="Nome" />
             <h3>Sobrenome:</h3>
@@ -93,6 +95,7 @@ function App() {
           {dados.map((itemAtual, i) => {
             return (
               <div className="ItemAluno" key={itemAtual.i}>
+                <p>Id: {itemAtual.Id}</p>
                 <p>Nome: {itemAtual.Nome}</p>
                 <p>Sobrenome: {itemAtual.Sobrenome}</p>
                 <p>Idade: {itemAtual.Idade}</p>
