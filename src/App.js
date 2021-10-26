@@ -3,6 +3,7 @@ import React from 'react';
 import { BiTrash } from 'react-icons/bi';
 import { FaSearch } from 'react-icons/fa';
 import {BsFillPlusSquareFill} from 'react-icons/bs';
+import {AiOutlineGithub} from 'react-icons/ai';
 
 function App() {
 
@@ -124,7 +125,7 @@ function App() {
       <div className="footer">
         <div className="dadosFooter">
           <p>Aplicação criada em ReactJS com a finalidade de Estudos de Inserção, Busca e Remoção de items em Array de objetos.</p>
-          <p>Desenvolvido por Felipe Fontenele | <a href="https://github.com/luizfelper" target="_blank">github.com/luizfelper</a></p>
+          <p>Desenvolvido por Felipe Fontenele | <AiOutlineGithub /> <a href="https://github.com/luizfelper" target="_blank">github.com/luizfelper</a></p>
         </div>
       </div>
     </div>
