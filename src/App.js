@@ -1,5 +1,9 @@
 import './App.css';
 import React from 'react';
+import { BiTrash } from 'react-icons/bi';
+import { FaSearch } from 'react-icons/fa';
+import {BsFillPlusSquareFill} from 'react-icons/bs';
+
 function App() {
 
   const [dados, setDados] = React.useState([{
@@ -65,7 +69,7 @@ function App() {
             <h3>Telefone:</h3>
             <input type="number" name="telefone" placeholder="Telefone" />
             <div className="boxBtnCadastrar">
-              <button className="btnCad">Cadastrar</button>
+              <button className="btnCad"><BsFillPlusSquareFill />  Cadastrar</button>
             </div>
           </form>
         </div>
@@ -80,7 +84,7 @@ function App() {
           const encontrarDados = dados.find(dados => dados.Nome === value); //Função do Javascript que busca elemento no array passando como parâmentro o value do input
           console.log(encontrarDados);
           setDadosDaBusca(encontrarDados); //Atualiza o array de busca
-        }}>Buscar</button>
+        }}><FaSearch /></button>
         </form>
 
         <div className="boxResultadoBusca">
@@ -102,13 +106,13 @@ function App() {
                 <p>Telefone: {itemAtual.Telefone}</p>
                 <div>
                   <form>
-                    <button onClick={function excluir(e) { // Função para excluir elemento do array
+                    <button className="btnExcluir" onClick={function excluir(e) { // Função para excluir elemento do array
                       e.preventDefault();
                       delete dados[i];
                       const dadosAtuais = dados.filter(item => item !== null);
                       setDados(dadosAtuais);
                       console.log(dados);
-                    }}>Remover</button>
+                    }}><BiTrash></BiTrash></button>
                   </form>
 
                 </div>

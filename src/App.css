@@ -62,8 +62,19 @@ button {
   display: flex;
 }
 
+.btnCad {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 110px;
+}
+
 .btnBuscar {
   margin-left: 10px;
+}
+
+.btnExcluir {
+  padding: 10px;
 }
 
 .boxResultadoBusca {
