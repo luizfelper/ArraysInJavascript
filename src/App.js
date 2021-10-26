@@ -74,12 +74,14 @@ function App() {
           const value = name.value;
           const boxResultadoCerto = document.querySelector(".boxResultadoCerto"); //Captura o Elemento HTML com id boxResultados
           const boxResultadoErrado = document.querySelector(".boxResultadoErrado"); //Captura o Elemento HTML com id boxResultados
+          
           const encontrarDados = dados.find(dados => dados.Nome === value); //Função do Javascript que busca elemento no array passando como parâmentro o value do input
 
           /* console.log(encontrarDados); */
 
           if(dados.find(dados => dados.Nome === value && true)){
             setDadosDaBusca(encontrarDados); //Atualiza o array de busca
+            boxResultadoErrado.classList.remove("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
             boxResultadoCerto.classList.add("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
           }else {
             boxResultadoCerto.classList.remove("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
