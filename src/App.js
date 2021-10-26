@@ -54,7 +54,7 @@ function App() {
                     <input type="number" name="Id" placeholder="Id" />
                     <h3>Nome:</h3>
                     <input type="text" name="nome" placeholder="Nome" />
-                    <h3>Sobrenome:</h3>
+                    <h3>Matrícula:</h3>
                     <input type="number" name="matricula" placeholder="Matricula" />
                     <h3>Idade:</h3>
                     <input type="number" name="idade" placeholder="Idade" />
