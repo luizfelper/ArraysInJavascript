@@ -2,78 +2,69 @@ import './App.css';
 import React from 'react';
 import { BiTrash } from 'react-icons/bi';
 import { FaSearch } from 'react-icons/fa';
-import {BsFillPlusSquareFill} from 'react-icons/bs';
+import { BsFillPlusSquareFill } from 'react-icons/bs';
 import {AiOutlineGithub} from 'react-icons/ai';
 
-function App() {
 
-  const [dados, setDados] = React.useState([{
-    Id: 0,
-    Nome: 'Bruno',
-    Sobrenome: 'Santos',
-    Idade: '23',
-    Telefone: '+55-86-999981876'
+function App() {
+    const [dados, setDados] = React.useState([{
+      Id: 0,
+      Nome: 'Bruno',
+      Sobrenome: 'Santos',
+      Idade: '23',
+      Telefone: '+55-86-999981876'
   },
   {
-    Id: 1,
-    Nome: 'Felipe',
-    Sobrenome: 'Fontenele',
-    Idade: '23',
-    Telefone: '+55-86-999981876'
-  },
-  {
-    Id: 2,
-    Nome: 'Marcos',
-    Sobrenome: 'Santos',
-    Idade: '23',
-    Telefone: '+55-86-999981876'
+      Id: 1,
+      Nome: 'Felipe',
+      Sobrenome: 'Fontenele',
+      Idade: '23',
+      Telefone: '+55-86-999981876'
   }
   ]);
 
   const [DadosDaBusca, setDadosDaBusca] = React.useState([{}]);
-
 
   return (
     <div>
       <div className="App">
         <h2 className="TituloApp">Tratar dados com Javascript</h2>
         <div className="boxCadastrar">
-          <form onSubmit={function addPessoas(e) {
-            e.preventDefault();
-            const dadosPessoa = new FormData(e.target); //Captura os dados do formulário em geral
+                <form onSubmit={function addPessoas(e) {
+                    e.preventDefault();
+                    const dadosPessoa = new FormData(e.target); //Captura os dados do formulário em geral
 
-            const obtemDados = { //Captura os dados dos campos em específico
-              Id: dadosPessoa.get('Id'),
-              Nome: dadosPessoa.get('nome'),
-              Sobrenome: dadosPessoa.get('sobrenome'),
-              Idade: dadosPessoa.get('idade'),
-              Telefone: dadosPessoa.get('telefone')
-            };
+                    const obtemDados = { //Captura os dados dos campos em específico
+                        Id: dadosPessoa.get('Id'),
+                        Nome: dadosPessoa.get('nome'),
+                        Sobrenome: dadosPessoa.get('sobrenome'),
+                        Idade: dadosPessoa.get('idade'),
+                        Telefone: dadosPessoa.get('telefone')
+                    };
+                    const pessoasAtualizadas = [...dados, obtemDados] //Adiciona os dados na lista de pessoas
+                    setDados(pessoasAtualizadas); //Atualiza a lista de pessoas
+                    console.log(pessoasAtualizadas);
 
-            const pessoasAtualizadas = [...dados, obtemDados] //Adiciona os dados na lista de pessoas
-            setDados(pessoasAtualizadas); //Atualiza a lista de pessoas
-            console.log(pessoasAtualizadas);
-            
-            // Limpar formulário
-            let inputs = document.querySelectorAll('input');
-            inputs.forEach(input => input.value = '');
-            
-          }}>
-            <h3>Id</h3>
-            <input type="number" name="Id" placeholder="Id" />
-            <h3>Nome:</h3>
-            <input type="text" name="nome" placeholder="Nome" />
-            <h3>Sobrenome:</h3>
-            <input type="text" name="sobrenome" placeholder="Sobrenome" />
-            <h3>Idade:</h3>
-            <input type="number" name="idade" placeholder="Idade" />
-            <h3>Telefone:</h3>
-            <input type="number" name="telefone" placeholder="Telefone" />
-            <div className="boxBtnCadastrar">
-              <button className="btnCad"><BsFillPlusSquareFill />Cadastrar</button>
+                    // Limpar formulário
+                    let inputs = document.querySelectorAll('input');
+                    inputs.forEach(input => input.value = '');
+
+                }}>
+                    <h3>Id</h3>
+                    <input type="number" name="Id" placeholder="Id" />
+                    <h3>Nome:</h3>
+                    <input type="text" name="nome" placeholder="Nome" />
+                    <h3>Sobrenome:</h3>
+                    <input type="text" name="sobrenome" placeholder="Sobrenome" />
+                    <h3>Idade:</h3>
+                    <input type="number" name="idade" placeholder="Idade" />
+                    <h3>Telefone:</h3>
+                    <input type="number" name="telefone" placeholder="Telefone" />
+                    <div className="boxBtnCadastrar">
+                        <button className="btnCad"><BsFillPlusSquareFill />Cadastrar</button>
+                    </div>
+                </form>
             </div>
-          </form>
-        </div>
         <form className="boxBuscar">
           <input id="nome" type="text" name="buscar" placeholder="Buscar por nome..." />
           <button className="btnBuscar" onClick={function buscar(e) { // Busca elemento no array pelo nome
@@ -84,19 +75,32 @@ function App() {
 
           const encontrarDados = dados.find(dados => dados.Nome === value); //Função do Javascript que busca elemento no array passando como parâmentro o value do input
           console.log(encontrarDados);
-          setDadosDaBusca(encontrarDados); //Atualiza o array de busca
-          const boxResultados = document.querySelector(".boxResultadoBusca"); //Captura o Elemento HTML com id boxResultados
-          boxResultados.classList.add("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
+
+          if(dados.find(dados => dados.Nome === value && true)){
+            setDadosDaBusca(encontrarDados); //Atualiza o array de busca
+            const boxResultados = document.querySelector(".boxResultadoCerto"); //Captura o Elemento HTML com id boxResultados
+            boxResultados.classList.add("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
+          }else {
+            const boxResultadoErrado = document.querySelector(".boxResultadoErrado"); //Captura o Elemento HTML com id boxResultados
+            boxResultadoErrado.classList.add("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
+          }
+          
         }}><FaSearch /></button>
         </form>
 
         <div className="boxResultadoBusca">
-          <h3>Resultado da busca:</h3>
-          <p>Id: {DadosDaBusca.Id} - Nome: {DadosDaBusca.Nome} - Sobrenome: {DadosDaBusca.Sobrenome} 
-            - Idade: {DadosDaBusca.Idade} - Telefone: {DadosDaBusca.Telefone}</p>
+          <div className="boxResultadoCerto">
+            <h3>Resultado da busca:</h3>
+            <p>Id: {DadosDaBusca.Id} - Nome: {DadosDaBusca.Nome} - Sobrenome: {DadosDaBusca.Sobrenome} 
+              - Idade: {DadosDaBusca.Idade} - Telefone: {DadosDaBusca.Telefone}</p>
+          </div>
+          <div className="boxResultadoErrado">
+            <h3>Resultado da busca:</h3>
+            <p>Não encontrado</p>
+          </div>
         </div>
 
-        <h2>Alunos ({dados.length})</h2>
+       <h2>Alunos ({dados.length})</h2>
 
         <div className="boxListas">
           {dados.map((itemAtual, i) => {
