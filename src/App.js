@@ -70,7 +70,7 @@ function App() {
           </form>
         </div>
         <form className="boxBuscar">
-          <input id="nome" type="text" name="buscar" placeholder="Buscar" />
+          <input id="nome" type="text" name="buscar" placeholder="Buscar por nome..." />
           <button className="btnBuscar" onClick={function buscar(e) { // Busca elemento no array pelo nome
           e.preventDefault();
 
