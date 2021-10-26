@@ -55,6 +55,14 @@ button {
   display: flex;
 }
 
+.boxResultadoBusca {
+  width: 100%;
+  height: auto;
+  background-color: #f6f6f6;
+  padding: 20px;
+  border: 1px solid #eee;
+}
+
 
 .ItemAluno {
   background-color: #f6f6f6;

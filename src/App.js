@@ -25,6 +25,8 @@ function App() {
   }
   ]);
 
+  const [DadosDaBusca, setDadosDaBusca] = React.useState([{}]);
+
 
   return (
     <div>
@@ -69,13 +71,21 @@ function App() {
           <input id="nome" type="text" name="buscar" placeholder="Buscar" />
           <button onClick={function buscar(e) { // Busca elemento no array pelo nome
           e.preventDefault();
+
           const name = document.querySelector("#nome");
           const value = name.value;
 
           const encontrarDados = dados.find(dados => dados.Nome === value); //Função do Javascript que busca elemento no array passando como parâmentro o value do input
           console.log(encontrarDados);
+          setDadosDaBusca(encontrarDados); //Atualiza o array de busca
         }}>Buscar</button>
         </form>
+
+        <div className="boxResultadoBusca">
+          <h3>Resultado da busca:</h3>
+          <p>Id: {DadosDaBusca.Id} - Nome: {DadosDaBusca.Nome} - Sobrenome: {DadosDaBusca.Sobrenome} 
+            - Idade: {DadosDaBusca.Idade} - Telefone: {DadosDaBusca.Telefone}</p>
+        </div>
 
         <h2>Alunos ({dados.length})</h2>
 
