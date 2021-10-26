@@ -70,7 +70,7 @@ function App() {
             <h3>Telefone:</h3>
             <input type="number" name="telefone" placeholder="Telefone" />
             <div className="boxBtnCadastrar">
-              <button className="btnCad"><BsFillPlusSquareFill />  Cadastrar</button>
+              <button className="btnCad"><BsFillPlusSquareFill />Cadastrar</button>
             </div>
           </form>
         </div>
