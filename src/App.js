@@ -25,14 +25,11 @@ function App() {
   }
   ]);
 
-  const encontrarDados = dados.find(dados => dados.Nome === 'Marcos');
-  console.log(encontrarDados)
-
 
   return (
     <div>
       <div className="App">
-        <h1>Tratar dados com Javascript</h1>
+        <h2>Tratar dados com Javascript</h2>
         <div className="boxCadastrar">
           <form onSubmit={function addPessoas(e) {
             e.preventDefault();
@@ -68,14 +65,17 @@ function App() {
             </div>
           </form>
         </div>
-        <form className="boxBuscar" onSubmit={function buscar() {
+        <form className="boxBuscar" onSubmit={function buscar(e) {
+          e.preventDefault();
           alert('Buscar');
+          const encontrarDados = dados.find(dados => dados.Nome === 'Marcos');
+          console.log(encontrarDados)
         }}>
           <input type="text" name="buscar" placeholder="Buscar" />
           <button>Buscar</button>
         </form>
 
-        <h2>Quantidade ({dados.length})</h2>
+        <h2>Alunos ({dados.length})</h2>
 
         <div className="boxListas">
           {dados.map((itemAtual, i) => {
