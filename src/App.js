@@ -8,19 +8,12 @@ import {AiOutlineGithub} from 'react-icons/ai';
 
 function App() {
     const [dados, setDados] = React.useState([{
-      Id: 0,
-      Nome: 'Bruno',
-      Sobrenome: 'Santos',
-      Idade: '23',
-      Telefone: '+55-86-999981876'
-  },
-  {
-      Id: 1,
-      Nome: 'Felipe',
-      Sobrenome: 'Fontenele',
-      Idade: '23',
-      Telefone: '+55-86-999981876'
-  }
+        Id: 0,
+        Nome: 'Luiz Felipe',
+        Matricula: '21017136',
+        Idade: '28',
+        Telefone: '86-9-99951876',
+    }
   ]);
 
   const [DadosDaBusca, setDadosDaBusca] = React.useState([{}]);
@@ -94,7 +87,7 @@ function App() {
         <div className="boxResultadoBusca">
           <div className="boxResultadoCerto">
             <h3>Resultado da busca:</h3>
-            <p>Id: {DadosDaBusca.Id} - Nome: {DadosDaBusca.Nome} - Sobrenome: {DadosDaBusca.Sobrenome} 
+            <p>Id: {DadosDaBusca.Id} - Nome: {DadosDaBusca.Nome} - Matricula: {DadosDaBusca.Matricula} 
               - Idade: {DadosDaBusca.Idade} - Telefone: {DadosDaBusca.Telefone}</p>
           </div>
           <div className="boxResultadoErrado">
@@ -111,7 +104,7 @@ function App() {
               <div className="ItemAluno" key={itemAtual.i}>
                 <p>Id: {itemAtual.Id}</p>
                 <p>Nome: {itemAtual.Nome}</p>
-                <p>Sobrenome: {itemAtual.Sobrenome}</p>
+                <p>Matrícula: {itemAtual.Matricula}</p>
                 <p>Idade: {itemAtual.Idade}</p>
                 <p>Telefone: {itemAtual.Telefone}</p>
                 <div>
