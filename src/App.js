@@ -37,7 +37,7 @@ function App() {
                     const obtemDados = { //Captura os dados dos campos em específico
                         Id: dadosPessoa.get('Id'),
                         Nome: dadosPessoa.get('nome'),
-                        Sobrenome: dadosPessoa.get('sobrenome'),
+                        Matricula: dadosPessoa.get('matricula'),
                         Idade: dadosPessoa.get('idade'),
                         Telefone: dadosPessoa.get('telefone')
                     };
@@ -55,7 +55,7 @@ function App() {
                     <h3>Nome:</h3>
                     <input type="text" name="nome" placeholder="Nome" />
                     <h3>Sobrenome:</h3>
-                    <input type="text" name="sobrenome" placeholder="Sobrenome" />
+                    <input type="number" name="matricula" placeholder="Matricula" />
                     <h3>Idade:</h3>
                     <input type="number" name="idade" placeholder="Idade" />
                     <h3>Telefone:</h3>
@@ -72,16 +72,17 @@ function App() {
 
           const name = document.querySelector("#nome");
           const value = name.value;
-
+          const boxResultadoCerto = document.querySelector(".boxResultadoCerto"); //Captura o Elemento HTML com id boxResultados
+          const boxResultadoErrado = document.querySelector(".boxResultadoErrado"); //Captura o Elemento HTML com id boxResultados
           const encontrarDados = dados.find(dados => dados.Nome === value); //Função do Javascript que busca elemento no array passando como parâmentro o value do input
-          console.log(encontrarDados);
+
+          /* console.log(encontrarDados); */
 
           if(dados.find(dados => dados.Nome === value && true)){
             setDadosDaBusca(encontrarDados); //Atualiza o array de busca
-            const boxResultados = document.querySelector(".boxResultadoCerto"); //Captura o Elemento HTML com id boxResultados
-            boxResultados.classList.add("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
+            boxResultadoCerto.classList.add("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
           }else {
-            const boxResultadoErrado = document.querySelector(".boxResultadoErrado"); //Captura o Elemento HTML com id boxResultados
+            boxResultadoCerto.classList.remove("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
             boxResultadoErrado.classList.add("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
           }
           
