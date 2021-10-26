@@ -102,7 +102,7 @@ function App() {
                 <p>Telefone: {itemAtual.Telefone}</p>
                 <div>
                   <form>
-                    <button onClick={function excluir(e) {
+                    <button onClick={function excluir(e) { // Função para excluir elemento do array
                       e.preventDefault();
                       delete dados[i];
                       const dadosAtuais = dados.filter(item => item !== null);
