@@ -4,7 +4,7 @@ function App() {
 
   const [dados, setDados] = React.useState([{
     Id: 0,
-    Nome: 'Felipe',
+    Nome: 'Bruno',
     Sobrenome: 'Santos',
     Idade: '23',
     Telefone: '+55-86-999981876'
@@ -12,51 +12,62 @@ function App() {
   {
     Id: 1,
     Nome: 'Felipe',
-    Sobrenome: 'Santos',
+    Sobrenome: 'Fontenele',
     Idade: '23',
     Telefone: '+55-86-999981876'
   },
   {
-    Id: 1,
-    Nome: 'Felipe',
+    Id: 2,
+    Nome: 'Marcos',
     Sobrenome: 'Santos',
     Idade: '23',
     Telefone: '+55-86-999981876'
   }
   ]);
 
+  const encontrarDados = dados.find(dados => dados.Nome === 'Marcos');
+  console.log(encontrarDados)
+
 
   return (
     <div>
       <div className="App">
         <h1>Tratar dados com Javascript</h1>
-        <form className="boxCadastrar" onSubmit={function addPessoas(e) {
-          e.preventDefault();
-          const dadosPessoa = new FormData(e.target);
+        <div className="boxCadastrar">
+          <form onSubmit={function addPessoas(e) {
+            e.preventDefault();
+            const dadosPessoa = new FormData(e.target);
 
-          const obtemDados = {
-            Id: 1,
-            Nome: dadosPessoa.get('nome'),
-            Sobrenome: dadosPessoa.get('sobrenome'),
-            Idade: dadosPessoa.get('idade'),
-            Telefone: dadosPessoa.get('telefone')
-          };
+            const obtemDados = {
+              Id: 1,
+              Nome: dadosPessoa.get('nome'),
+              Sobrenome: dadosPessoa.get('sobrenome'),
+              Idade: dadosPessoa.get('idade'),
+              Telefone: dadosPessoa.get('telefone')
+            };
 
-          const pessoasAtualizadas = [...dados, obtemDados]
-          setDados(pessoasAtualizadas);
-          console.log(pessoasAtualizadas);
+            const pessoasAtualizadas = [...dados, obtemDados]
+            setDados(pessoasAtualizadas);
+            console.log(pessoasAtualizadas);
+          }}>
+            <input type="text" name="nome" placeholder="Nome" />
+            <input type="text" name="sobrenome" placeholder="Sobrenome" />
+            <input type="number" name="idade" placeholder="Idade" />
+            <input type="number" name="telefone" placeholder="Telefone" />
+            <div className="boxBtnCadastrar">
+              <button className="btnCad">Cadastrar</button>
+              <button className="btnLimpa" onClick={function Limpar(e){
+              e.preventDefault();
+              alert('Limpar');
+            }}>Limpar</button>
+            </div>
+          </form>
+        </div>
+        <form className="boxBuscar" onSubmit={function buscar() {
+          alert('Buscar');
         }}>
-          <input type="text" name="nome" placeholder="Nome" />
-          <input type="text" name="sobrenome" placeholder="Sobrenome" />
-          <input type="number" name="idade" placeholder="Idade" />
-          <input type="number" name="telefone" placeholder="Telefone" />
-          <div className="boxBtnCadastrar">
-            <button className="btnCad">Cadastrar</button>
-            <button className="btnLimpa">Limpar</button>
-          </div>
-        </form>
-        <form>
           <input type="text" name="buscar" placeholder="Buscar" />
+          <button>Buscar</button>
         </form>
 
         <h2>Quantidade ({dados.length})</h2>
@@ -82,11 +93,11 @@ function App() {
 
                 </div>
               </div>
-
             )
           })}
         </div>
       </div>
+      <div className="footer"></div>
     </div>
   );
 }
