@@ -117,7 +117,12 @@ function App() {
           })}
         </div>
       </div>
-      <div className="footer"></div>
+      <div className="footer">
+        <div className="dadosFooter">
+          <p>Aplicação criada em ReactJS com a finalidade de Estudos de Inserção, Busca e Remoção de items em Array de objetos.</p>
+          <p>Desenvolvido por Felipe Fontenele | <a href="https://github.com/luizfelper" target="_blank">github.com/luizfelper</a></p>
+        </div>
+      </div>
     </div>
   );
 }

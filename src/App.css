@@ -6,18 +6,7 @@
 
 a {
   text-decoration: none;
-  color: #000;
-}
-
-.App {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0px 30px;
-  text-align: center;
-}
-
-.TituloApp {
-  padding: 20px 0px;
+  color: #ccc;
 }
 
 input {
@@ -38,6 +27,19 @@ button {
   border : none;
   cursor: pointer;
 }
+
+.App {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0px 30px;
+  text-align: center;
+}
+
+.TituloApp {
+  padding: 20px 0px;
+}
+
+
 
 .boxCadastrar {
   border: 1px solid #eee;
@@ -94,10 +96,16 @@ button {
 }
 
 .footer {
+  color: #ccc;
   width: 100%;
   height: 100px;
   background-color: #282c34;
   bottom: 0;
+}
+
+.dadosFooter {
+  text-align: center;
+  padding: 25px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
