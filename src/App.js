@@ -65,14 +65,16 @@ function App() {
             </div>
           </form>
         </div>
-        <form className="boxBuscar" onSubmit={function buscar(e) {
+        <form className="boxBuscar">
+          <input id="nome" type="text" name="buscar" placeholder="Buscar" />
+          <button onClick={function buscar(e) { // Busca elemento no array pelo nome
           e.preventDefault();
-          alert('Buscar');
-          const encontrarDados = dados.find(dados => dados.Nome === 'Marcos');
-          console.log(encontrarDados)
-        }}>
-          <input type="text" name="buscar" placeholder="Buscar" />
-          <button>Buscar</button>
+          const name = document.querySelector("#nome");
+          const value = name.value;
+
+          const encontrarDados = dados.find(dados => dados.Nome === value); //Função do Javascript que busca elemento no array passando como parâmentro o value do input
+          console.log(encontrarDados);
+        }}>Buscar</button>
         </form>
 
         <h2>Alunos ({dados.length})</h2>
