@@ -36,9 +36,9 @@ function App() {
         <div className="boxCadastrar">
           <form onSubmit={function addPessoas(e) {
             e.preventDefault();
-            const dadosPessoa = new FormData(e.target);
+            const dadosPessoa = new FormData(e.target); //Captura os dados do formulário em geral
 
-            const obtemDados = {
+            const obtemDados = { //Captura os dados dos campos em específico
               Id: 1,
               Nome: dadosPessoa.get('nome'),
               Sobrenome: dadosPessoa.get('sobrenome'),
@@ -46,20 +46,25 @@ function App() {
               Telefone: dadosPessoa.get('telefone')
             };
 
-            const pessoasAtualizadas = [...dados, obtemDados]
-            setDados(pessoasAtualizadas);
+            const pessoasAtualizadas = [...dados, obtemDados] //Adiciona os dados na lista de pessoas
+            setDados(pessoasAtualizadas); //Atualiza a lista de pessoas
             console.log(pessoasAtualizadas);
+            
+            // Limpar formulário
+            let inputs = document.querySelectorAll('input');
+            inputs.forEach(input => input.value = '');
+            
           }}>
+            <h3>Nome:</h3>
             <input type="text" name="nome" placeholder="Nome" />
+            <h3>Sobrenome:</h3>
             <input type="text" name="sobrenome" placeholder="Sobrenome" />
+            <h3>Idade:</h3>
             <input type="number" name="idade" placeholder="Idade" />
+            <h3>Telefone:</h3>
             <input type="number" name="telefone" placeholder="Telefone" />
             <div className="boxBtnCadastrar">
               <button className="btnCad">Cadastrar</button>
-              <button className="btnLimpa" onClick={function Limpar(e){
-              e.preventDefault();
-              alert('Limpar');
-            }}>Limpar</button>
             </div>
           </form>
         </div>
