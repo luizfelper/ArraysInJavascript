@@ -16,6 +16,10 @@ a {
   text-align: center;
 }
 
+.TituloApp {
+  padding: 20px 0px;
+}
+
 input {
   width: 100%;
   padding: 10px;
@@ -37,8 +41,8 @@ button {
 
 .boxCadastrar {
   border: 1px solid #eee;
-  padding-bottom: 14px;
   padding: 40px;
+  margin: 20px 0px;
   text-align: left;
 }
 

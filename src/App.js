@@ -31,7 +31,7 @@ function App() {
   return (
     <div>
       <div className="App">
-        <h2>Tratar dados com Javascript</h2>
+        <h2 className="TituloApp">Tratar dados com Javascript</h2>
         <div className="boxCadastrar">
           <form onSubmit={function addPessoas(e) {
             e.preventDefault();
