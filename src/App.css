@@ -78,12 +78,17 @@ button {
 }
 
 .boxResultadoBusca {
+  display: none;
   width: 100%;
   height: auto;
   background-color: #f6f6f6;
   padding: 20px;
   border: 1px solid #eee;
   margin: 10px 0px;
+}
+
+.active {
+  display: block;
 }
 
 

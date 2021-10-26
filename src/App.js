@@ -85,6 +85,8 @@ function App() {
           const encontrarDados = dados.find(dados => dados.Nome === value); //Função do Javascript que busca elemento no array passando como parâmentro o value do input
           console.log(encontrarDados);
           setDadosDaBusca(encontrarDados); //Atualiza o array de busca
+          const boxResultados = document.querySelector(".boxResultadoBusca"); //Captura o Elemento HTML com id boxResultados
+          boxResultados.classList.add("active"); // Adiciona a classe active ao elemento HTML com id boxResultados
         }}><FaSearch /></button>
         </form>
 
